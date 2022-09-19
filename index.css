@@ -3,14 +3,27 @@
   margin: 0;
 }
 
-@keyframes zoomIn {
-  0% {
-    width: 30px;
-    height: 30px;
+@keyframes load-outer-circle {
+  from {
+    width: 50px;
+    height: 50px;
     transform: rotate(-1440deg);
   }
 
-  100% {
+  to {
+    width: 150px;
+    height: 150px;
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes load-inner-circle {
+  from {
+    width: 30px;
+    height: 30px;
+    transform: rotate(2880deg);
+  }
+  to {
     width: 70px;
     height: 70px;
     transform: rotate(0deg);
@@ -27,11 +40,23 @@
 .circle-box {
   border: 5px solid rgba(255, 255, 255, 0.4);
   border-left: 5px solid white;
-  height: 70px;
-  width: 70px;
+  height: 150px;
+  width: 150px;
   border-radius: 50%;
-  animation: zoomIn 4s;
+  animation: load-outer-circle 4s;
   position: absolute;
   top: 150px;
   left: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.inner-circle-box {
+  height: 70px;
+  width: 70px;
+  border: 3px solid rgba(255, 255, 255, 0.4);
+  border-left: 3px solid white;
+  border-radius: 50%;
+  animation: load-inner-circle 4s;
 }
